@@ -4,6 +4,6 @@ do
         /bin/sed -i "s|GATEWAY_URL|${GATEWAY_URL}|g"  $file
 done
 
-zip -r -j /usr/share/nginx/html/build/Mouksha.zip /usr/share/nginx/html/build
+zip -r -j /usr/share/nginx/html/build/Mouksha1.zip /usr/share/nginx/html/build
 
 nginx -g 'daemon off;'

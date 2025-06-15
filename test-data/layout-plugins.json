@@ -1,25 +1,33 @@
 {
-    "map-container": [],
-    "menu-component-container": [],
-    "c3-container": [],
-    "c4-container": [],
-    "map-overlay": [],
-    "modal-container": [],
-    "side-bar": [{
-        "pluginId": "Mouksha",
-            "components": [{
-                "id": "MapClickResult",
-                "show": false
-            }]
-    }],
-    "map-navigation": [],
-    "menu-trigger-container": [{
-        "pluginId": "Mouksha",
-            "components": [{
-                "id": "MapClick",
-                "show": true
-            }]
-    }],
-    "search-trigger-container": [],
-    "other-trigger-container": []
+  "map-container": [],
+  "menu-component-container": [],
+  "c3-container": [],
+  "c4-container": [],
+  "map-overlay": [],
+  "modal-container": [],
+  "side-bar": [
+    {
+      "pluginId": "Mouksha1",
+      "components": [
+        {
+          "id": "MapClickResult",
+          "show": false
+        }
+      ]
+    }
+  ],
+  "map-navigation": [],
+  "menu-trigger-container": [
+    {
+      "pluginId": "Mouksha1",
+      "components": [
+        {
+          "id": "MapClick",
+          "show": true
+        }
+      ]
+    }
+  ],
+  "search-trigger-container": [],
+  "other-trigger-container": []
 }

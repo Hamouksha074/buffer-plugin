@@ -6,7 +6,7 @@ COPY package.json .
 COPY .npmrc .
 COPY . /app
 RUN npm install
-ENV ASSET_PATH=GATEWAY_URL/Mouksha/build/
+ENV ASSET_PATH=GATEWAY_URL/Mouksha1/build/
 RUN npm run prod
 RUN npm run doc
 
