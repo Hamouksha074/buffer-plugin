@@ -77,62 +77,62 @@ class MapClickResult extends React.Component {
       },
     });
 
-    // apiRegistry
-    //   .getApis(DRAWING)
-    //   .then(([Feature, Style, Fill, Stroke, Circle, VectorLayer]) => {
-    //     const featureRefrance = new Feature(buffered);
-    //     const options = { Stroke: STROKE_COLOR, PointRadius: 3000 };
-    //     const featureStyle = new Style(
-    //       new Fill("#e9124270"),
-    //       new Stroke(options.Stroke, 4),
-    //       new Circle(
-    //         new Fill("#e9124270"),
-    //         new Stroke(options.Stroke, 4),
-    //         options.PointRadius
-    //       ),
-    //       null
-    //     );
+    apiRegistry
+      .getApis(DRAWING)
+      .then(([Feature, Style, Fill, Stroke, Circle, VectorLayer]) => {
+        const featureRefrance = new Feature(buffered);
+        const options = { Stroke: STROKE_COLOR, PointRadius: 3000 };
+        const featureStyle = new Style(
+          new Fill("#e9124270"),
+          new Stroke(options.Stroke, 4),
+          new Circle(
+            new Fill("#e9124270"),
+            new Stroke(options.Stroke, 4),
+            options.PointRadius
+          ),
+          null
+        );
 
-    //     featureRefrance.setStyle(featureStyle);
-    //     const vl = new VectorLayer();
-    //     this.props.removeVectorLayer(this.state.vectorLayer.value);
-    //     this.props.addVectorLayer(vl);
-    //     this.setState({
-    //       ...this.state,
-    //       vectorLayer: {
-    //         ...this.state.vectorLayer,
-    //         value: vl,
-    //       },
-    //     });
+        featureRefrance.setStyle(featureStyle);
+        const vl = new VectorLayer();
+        this.props.removeVectorLayer(this.state.vectorLayer.value);
+        this.props.addVectorLayer(vl);
+        this.setState({
+          ...this.state,
+          vectorLayer: {
+            ...this.state.vectorLayer,
+            value: vl,
+          },
+        });
 
-    //     vl.addFeature(featureRefrance);
-    //   });
+        vl.addFeature(featureRefrance);
+      });
 
-    // callQueryService(layer, buffered).then((response) => {
-    //   console.log(response, "><<<<<>>>>>>>>>response");
-    //   if (!response || response.length === 0) {
-    //     this.props.notify("No data found", "warning");
-    //     this.props.removeMapClickResult(this.id);
-    //     this.props.removeVectorLayer(this.state.vectorLayer.value);
-    //     this.setState({
-    //       ...this.state,
-    //       vectorLayer: {},
-    //     });
-    //     return;
-    //   }
-    //   this.props.showMapClickResult(
-    //     { response: response },
-    //     (id) => (this.id = id),
-    //     (id) => {
-    //       this.props.removeMapClickResult(id);
-    //       this.props.removeVectorLayer(this.state.vectorLayer.value);
-    //       this.setState({
-    //         ...this.state,
-    //         vectorLayer: {},
-    //       });
-    //     }
-    //   );
-    // });
+    callQueryService(layer, buffered).then((response) => {
+      console.log(response, "><<<<<>>>>>>>>>response");
+      if (!response || response.length === 0) {
+        this.props.notify("No data found", "warning");
+        this.props.removeMapClickResult(this.id);
+        this.props.removeVectorLayer(this.state.vectorLayer.value);
+        this.setState({
+          ...this.state,
+          vectorLayer: {},
+        });
+        return;
+      }
+      this.props.showMapClickResult(
+        { response: response },
+        (id) => (this.id = id),
+        (id) => {
+          this.props.removeMapClickResult(id);
+          this.props.removeVectorLayer(this.state.vectorLayer.value);
+          this.setState({
+            ...this.state,
+            vectorLayer: {},
+          });
+        }
+      );
+    });
   }
   render() {
     return null;
