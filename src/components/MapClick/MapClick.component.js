@@ -65,11 +65,11 @@ class MapClickResult extends React.Component {
       this.props.removeMapClickResult(this.id);
     }
     const point = turf.point(currentClick.coordinate);
-    const buffered = turf.buffer(point, 50);
+    const buffered = turf.buffer(point, 100);
 
     drawFeature([buffered], {
       vectorLayerOptions: {
-        clear: false,
+        clear: true,
       },
       styleOptions: {
         color: "#00ff00",
