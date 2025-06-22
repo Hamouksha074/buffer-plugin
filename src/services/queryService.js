@@ -5,25 +5,28 @@ import {
   systemHideLoading,
 } from "@penta-b/ma-lib";
 const genQueryBody = (layer, buffered) => {
+  console.log("genQueryBody", layer, buffered);
+  if (!layer) {
+    throw new Error("Layer is required to generate query body");
+  }
   return [
     {
       dataSource: {
-        id: "00627602-62a4-44c6-8d3d-fd51cdc60577",
+        id: layer.id || "00627602-62a4-44c6-8d3d-fd51cdc60577",
       },
       filter: {
+        logicalOperation: "AND",
         conditionList: [
           {
-            tabularCondition: {
-              key: "gov_name",
-              dataType: "string",
-              operator: "like",
-              value: "%القاهره%",
+            spatialCondition: {
+              key: layer.geometryField.fieldName || "geometry",
+              geometry: JSON.stringify(buffered?.geometry) || null,
+              spatialRelation: "INTERSECT",
             },
           },
         ],
-        logicalOperation: "OR",
       },
-      crs: "EPSG:32636",
+      crs: layer.crs || "EPSG:4326",
     },
   ];
 };
